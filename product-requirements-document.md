@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD)
 
 **Title:** Alpenquell Brauerei — Brewery Supply Planning Agent  
-**Date:** 2026-11-12  
+**Date:** 2026-11-14  
 **Owner:** Supply Chain Planning  
 **Solution Category:** AI Agent
 
