@@ -1,0 +1,14 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: brewery-supply-planning-7ea2e
+  version: "1.0.0"
+  description: >
+    AI agent for Alpenquell Brauerei supply planners to assess whether beer
+    in fermentation and maturation tanks can cover short-term demand uplifts
+    (heat waves, events, promotions) in summer 2027, applying QC status,
+    regional brewery allocation, and packaging line capacity rules.
+
+assets:
+  - ref: ./assets/supply-planning-agent/asset.yaml

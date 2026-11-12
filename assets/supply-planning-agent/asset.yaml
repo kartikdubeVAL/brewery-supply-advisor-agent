@@ -1,0 +1,43 @@
+apiVersion: asset.sap/v1
+kind: Asset
+type: agent
+
+metadata:
+  name: supply-planning-agent
+  description: >
+    Alpenquell Brauerei supply planning assistant. Answers natural language
+    demand coverage questions for summer 2027 uplift events by applying QC
+    status rules, regional brewery allocation constraints, and packaging line
+    capacity checks against Excel-based tank inventory data.
+  version: "1.0.0"
+
+provides:
+  apis:
+    - name: supply-planning-agent
+      kind: a2a
+      ordId: customer.build:apiResource:brewery-supply-planning-7ea2e.supply-planning-agent:v1
+      description: >
+        A2A agent API for brewery supply coverage assessment queries
+
+container:
+  buildPath: .
+  port: 5000
+
+probes:
+  startup:
+    path: /.well-known/agent.json
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 18
+  liveness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readiness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3
